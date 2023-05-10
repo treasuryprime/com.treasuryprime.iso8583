@@ -1,15 +1,15 @@
 (ns com.oakmac.iso8583.format
   (:require
-    [com.oakmac.iso8583.binary :refer [bytes-to-ascii bytes-to-hex]]
-    [com.oakmac.iso8583.util.string :as util.str]))
+   [com.oakmac.iso8583.binary :refer [bytes-to-ascii bytes-to-hex]]
+   [com.oakmac.iso8583.util.string :as util.str]))
 
 (defn variable-length-field [field-length]
   {:reader
-   (fn [_decoder-fn _field-name input]
+   (fn [decoder-fn _field-name input]
      (let [[length-bytes remaining-input] (split-at field-length input)
            length (Integer/parseInt (bytes-to-ascii length-bytes))
            [field-bytes remaining-input] (split-at length remaining-input)]
-       [(bytes-to-ascii field-bytes) remaining-input]))
+       [(decoder-fn field-bytes) remaining-input]))
 
    :writer
    (fn [encoder-fn _field-name value]

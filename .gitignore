@@ -3,10 +3,12 @@ lib/
 target/
 pom.xml
 pom.xml.asc
+.clj-kondo/
 *.diff
 .DS_Store
 .lein-deps-sum
 .lein-failures
 .lein-repl-history
+.lsp/
 .nrepl-port
 .settings
