@@ -13,9 +13,10 @@
 
    :writer
    (fn [encoder-fn _field-name value]
-     (str
-      (util.str/left-pad (str (count value)) field-length "0")
-      (encoder-fn value)))})
+     (let [e (encoder-fn value)]
+       (str
+        (util.str/left-pad (str (count e)) field-length "0")
+        e)))})
 
 (defn- error [field-name error-msg data]
   {:errors [(str "(field=" (name field-name) ") Error: " error-msg ". The data: [" data "]")]})

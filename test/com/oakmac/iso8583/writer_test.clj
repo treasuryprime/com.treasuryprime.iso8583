@@ -35,6 +35,6 @@
                            :transaction-amount "000000006660"
                            ;; This is a 3 digit variable length field with length 17.
                            ;; We expect it to be 0 padded to 017.
-                           :message-reason-code "lorem ipsum dolor"}))
+                           :message-reason-code {:data "lorem ipsum dolor"}}))
            (str (binary/bytes-to-hex "0200") "7000000000000100" (binary/bytes-to-hex "161111222233334444011000000000006660017lorem ipsum dolor")))
         "variable-length fields are left-padded with zeroes")))

@@ -65,7 +65,7 @@
       (is (= (:card-acceptor-name-location msg) "468 THRESHOLD AVENUE  E5106 INT CTY ONCA") "Can extract the card acceptor name location")
       (is (= (:transaction-currency msg) "124") "Can extract the transaction currency")
       (is (= (:pin-data msg) "742B95779B5A223F") "Can extract the pin data")
-      (is (= (:message-reason-code msg) "1510") "Can extract the message reason code")
+      (is (= (:message-reason-code msg) {:data "1510"}) "Can extract the message reason code")
       (is (= (:receiving-institution-id-code msg) "02006000305") "Can extract the receiving institution id code")
       (is (= (:pos-data-code msg) "511201515001002") "Can extract the pos data code")))
 
