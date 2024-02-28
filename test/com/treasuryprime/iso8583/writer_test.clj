@@ -1,9 +1,9 @@
-(ns com.oakmac.iso8583.writer-test
+(ns com.treasuryprime.iso8583.writer-test
   (:require
     [clojure.test :refer [deftest is testing]]
-    [com.oakmac.iso8583.binary :as binary]
-    [com.oakmac.iso8583.format-iso8583 :as format-iso8583]
-    [com.oakmac.iso8583.writer :as writer]))
+    [com.treasuryprime.iso8583.binary :as binary]
+    [com.treasuryprime.iso8583.format-iso8583 :as format-iso8583]
+    [com.treasuryprime.iso8583.writer :as writer]))
 
 (deftest write-test
   (testing "Can write the message-type"

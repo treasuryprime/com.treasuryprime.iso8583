@@ -1,4 +1,4 @@
-(ns com.oakmac.iso8583.util.string)
+(ns com.treasuryprime.iso8583.util.string)
 
 (defn left-pad
   [s l ch]

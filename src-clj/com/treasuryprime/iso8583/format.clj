@@ -1,7 +1,7 @@
-(ns com.oakmac.iso8583.format
+(ns com.treasuryprime.iso8583.format
   (:require
-   [com.oakmac.iso8583.binary :refer [bytes-to-ascii bytes-to-hex]]
-   [com.oakmac.iso8583.util.string :as util.str]))
+   [com.treasuryprime.iso8583.binary :refer [bytes-to-ascii bytes-to-hex]]
+   [com.treasuryprime.iso8583.util.string :as util.str]))
 
 (defn variable-length-field [field-length]
   {:reader

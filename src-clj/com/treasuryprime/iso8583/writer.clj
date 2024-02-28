@@ -1,6 +1,6 @@
-(ns com.oakmac.iso8583.writer
+(ns com.treasuryprime.iso8583.writer
   (:require
-    [com.oakmac.iso8583.binary :as binary]))
+    [com.treasuryprime.iso8583.binary :as binary]))
 
 (defn- field-name-of [field-definition]
   (:name (second field-definition)))

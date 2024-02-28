@@ -1,7 +1,7 @@
-(ns com.oakmac.iso8583.format-iso8583
+(ns com.treasuryprime.iso8583.format-iso8583
   (:require
-    [com.oakmac.iso8583.binary :refer [bytes-to-hex hex-to-bytes bytes-to-ascii]]
-    [com.oakmac.iso8583.format :refer [fixed-length-field make-field-definitions variable-length-field]]))
+    [com.treasuryprime.iso8583.binary :refer [bytes-to-hex hex-to-bytes bytes-to-ascii]]
+    [com.treasuryprime.iso8583.format :refer [fixed-length-field make-field-definitions variable-length-field]]))
 
 (defn field-definitions []
   (make-field-definitions

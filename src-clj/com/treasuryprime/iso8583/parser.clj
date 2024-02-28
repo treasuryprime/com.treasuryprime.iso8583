@@ -1,6 +1,6 @@
-(ns com.oakmac.iso8583.parser
+(ns com.treasuryprime.iso8583.parser
   (:require
-    [com.oakmac.iso8583.binary :as binary]))
+    [com.treasuryprime.iso8583.binary :as binary]))
 
 (defn- error [field-name error-message data]
   {:errors [(str "(" (name field-name) ") Error: " error-message ". The data: [" data "]")]})

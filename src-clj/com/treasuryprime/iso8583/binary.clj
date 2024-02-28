@@ -1,4 +1,4 @@
-(ns com.oakmac.iso8583.binary
+(ns com.treasuryprime.iso8583.binary
   (:import
     [java.nio.charset Charset]))
 
