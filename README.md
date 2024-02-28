@@ -1,4 +1,4 @@
-# com.oakmac.iso8583 [![CI Status](https://github.com/oakmac/com.oakmac.iso8583/actions/workflows/ci.yaml/badge.svg)](https://github.com/oakmac/com.oakmac.iso8583/actions/workflows/ci.yaml) [![Clojars Project](https://img.shields.io/clojars/v/com.oakmac/iso8583.svg)](https://clojars.org/com.oakmac/iso8583)
+# com.treasuryprime.iso8583 [![CI Status](https://github.com/treasuryprime/com.treasuryprime.iso8583/actions/workflows/ci.yaml/badge.svg)](https://github.com/treasuryprime/com.treasuryprime.iso8583/actions/workflows/ci.yaml) [![Clojars Project](https://img.shields.io/clojars/v/com.treasuryprime/iso8583.svg)](https://clojars.org/com.treasuryprime/iso8583)
 
 A Clojure library for parsing ISO8583 messages into Clojure maps.
 
@@ -45,5 +45,6 @@ To deploy to Clojars:
 
 Original project copyright © 2012 Ian Davies.
 Additional changes copyright © 2022 Chris Oakman.
+Additional changes copyright © 2024 Treasury Prime.
 
 Distributed under the [Eclipse Public License](LICENSE.txt).
