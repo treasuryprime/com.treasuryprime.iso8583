@@ -39,6 +39,12 @@ To deploy to Clojars:
 1. login to clojars.org and create a one-time deploy token
 1. deploy to clojars: `lein deploy clojars` (use the one-time token as the password)
 
+To deploy to Github Packages:
+
+1. Make sure that `project.clj` and `CHANGELOG.md` are updated
+2. Tag the latest version: `git tag -a v1.2.3 -m "v1.2.3"`
+3. Run `lein deploy github` and enter _your_ GitHub username and a Personal Access Token with package write permissions
+
 [leiningen]:https://leiningen.org/
 
 ## License
