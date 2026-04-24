@@ -1,7 +1,7 @@
 (ns com.treasuryprime.iso8583.binary-test
   (:require
-    [clojure.test :refer [deftest is]]
-    [com.treasuryprime.iso8583.binary :as binary]))
+   [clojure.test :refer [deftest is]]
+   [com.treasuryprime.iso8583.binary :as binary]))
 
 (deftest ubyte-test
   (is (= (binary/ubyte 0) 0))

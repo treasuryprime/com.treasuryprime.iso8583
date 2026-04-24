@@ -1,0 +1,14 @@
+#kaocha/v1
+{:tests
+ [{:id :unit
+   :test-paths ["test"]
+   :source-paths ["src-clj"]
+   :ns-patterns ["-test$"]
+   :plugins [:kaocha.plugin/capture-output]}]
+
+ :kaocha.plugin.capture-output/capture-output? false
+ :reporter [kaocha.report.progress/report]
+ :color? true
+ :randomize? false
+ :kaocha/color? true
+ :fail-fast? false}
