@@ -1,4 +1,6 @@
-# com.treasuryprime.iso8583 [![CI Status](https://github.com/treasuryprime/com.treasuryprime.iso8583/actions/workflows/ci.yaml/badge.svg)](https://github.com/treasuryprime/com.treasuryprime.iso8583/actions/workflows/ci.yaml) [![Clojars Project](https://img.shields.io/clojars/v/com.treasuryprime/iso8583.svg)](https://clojars.org/com.treasuryprime/iso8583)
+# com.treasuryprime.iso8583
+
+[![CI](https://github.com/treasuryprime/com.treasuryprime.iso8583/actions/workflows/ci.yaml/badge.svg)](https://github.com/treasuryprime/com.treasuryprime.iso8583/actions/workflows/ci.yaml)
 
 A Clojure library for parsing ISO8583 messages into Clojure maps.
 
@@ -10,6 +12,38 @@ but the project has been updated to use more modern Clojure practices.
 [alpian/clj-iso8583]:https://github.com/alpian/clj-iso8583
 
 ## Usage
+
+This library is published to [GitHub Packages](https://github.com/treasuryprime/com.treasuryprime.iso8583/packages)
+(not Clojars). Consumers must authenticate to GitHub Packages.
+
+### deps.edn
+
+```clojure
+{:deps {com.treasuryprime/iso8583 {:mvn/version "0.8.0"}}
+
+ :mvn/repos
+ {"github-treasuryprime"
+  {:url "https://maven.pkg.github.com/treasuryprime/com.treasuryprime.iso8583"}}}
+```
+
+### Authentication
+
+The GitHub Packages Maven repo requires a GitHub token with `read:packages`.
+Add credentials to `~/.m2/settings.xml`:
+
+```xml
+<settings>
+  <servers>
+    <server>
+      <id>github-treasuryprime</id>
+      <username>YOUR_GITHUB_USERNAME</username>
+      <password>YOUR_GITHUB_PAT</password>
+    </server>
+  </servers>
+</settings>
+```
+
+The `<id>` must match the key used under `:mvn/repos`.
 
 ### Parsing
 
@@ -25,27 +59,31 @@ but the project has been updated to use more modern Clojure practices.
 
 ## Development
 
-Install [leiningen], then from the project directory:
-
-```sh
-# run unit tests
-lein test
+```bash
+clojure -M:test                 # run unit tests (Kaocha)
+clojure -M:test/watch           # run tests in watch mode
+clojure -M:cljfmt check         # lint formatting
+clojure -M:cljfmt fix           # auto-fix formatting
+clojure -T:build clean          # clean target/
+clojure -T:build jar            # build target/iso8583-<ver>.jar
+clojure -T:build install        # install to ~/.m2 for local consumers
 ```
 
-To deploy to Clojars:
+## Releasing
 
-1. make sure that `project.clj` and `CHANGELOG.md` are updated
-1. tag with the latest version: `git tag -a v1.2.3 -m "v1.2.3"`
-1. login to clojars.org and create a one-time deploy token
-1. deploy to clojars: `lein deploy clojars` (use the one-time token as the password)
+Releases are cut manually from a maintainer's laptop.
 
-To deploy to Github Packages:
-
-1. Make sure that `project.clj` and `CHANGELOG.md` are updated
-2. Tag the latest version: `git tag -a v1.2.3 -m "v1.2.3"`
-3. Run `lein deploy github` and enter _your_ GitHub username and a Personal Access Token with package write permissions
-
-[leiningen]:https://leiningen.org/
+1. Bump `version` in `build.clj` (e.g. `"0.8.0"` -> `"0.8.1"`).
+2. Update `CHANGELOG.md`.
+3. Commit, open PR, merge to `main`.
+4. Tag the merge commit: `git tag v0.8.1 && git push origin v0.8.1`.
+5. Deploy:
+   ```bash
+   export CLOJARS_USERNAME=<your-github-username>
+   export CLOJARS_PASSWORD=<github-pat-with-write:packages>
+   clojure -T:build deploy
+   ```
+   (`slipset/deps-deploy` reads `CLOJARS_*` env vars; our `build.clj` points them at GitHub Packages, not Clojars.)
 
 ## License
 

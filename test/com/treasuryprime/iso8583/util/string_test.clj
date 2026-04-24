@@ -1,7 +1,7 @@
 (ns com.treasuryprime.iso8583.util.string-test
   (:require
-    [clojure.test :refer [deftest is]]
-    [com.treasuryprime.iso8583.util.string :as util.str]))
+   [clojure.test :refer [deftest is]]
+   [com.treasuryprime.iso8583.util.string :as util.str]))
 
 (deftest left-pad-test
   (is (= (util.str/left-pad "" 0 "") ""))
